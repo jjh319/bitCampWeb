@@ -33,6 +33,8 @@ public class paramServlet extends HttpServlet {
 		} else {
 			out.println("그래서 <span id='textSpan'>청소년</span> 입니다.");
 		}
+		out.println("<br>");
+		out.println("<input type='button' value='뒤로' onclick=javascript:location.href='http://localhost:8080/testServlet2/exam/param.html'>");
 		
 		out.println("</body>");
 		out.println("</html>");
