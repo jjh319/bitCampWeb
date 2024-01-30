@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<style>
+	table {
+		border-collapse: collapse;
+	}
+
+	#nameDiv, #ageDiv {
+		font-size: 8pt;
+		font-weight : bold;
+		color:red;
+		
+	}
+</style>
+</head>
+<body>
+	<form name="inputForm" method="get" action="http://localhost:8080/testServlet2/paramServlet">
+		<table border="1" cellpadding="5">
+			<tr>
+				<td width="50" align="center">이름</td>
+				<td><input type="text"  name="name" id="name"></td>
+				<div id="nameDiv"></div>
+			</tr>
+			<tr>
+				<td align="center">나이</td>
+				<td><input type="text"  name="age" id="age"></td>
+				<div id="ageDiv"></div>
+			</tr>
+			<td colspan="2" align="center">
+				<input type="submit" value="SEND" onclick="javascript:checkInput()">
+				<input type="reset" value="CANCLE">
+			</td>
+		</table>
+	</form>
+
+	<script>
+		function checkInput() {
+			document.getElementById("nameDiv").innerHTML = "";
+			document.getElementById("ageDiv").innerHTML = "";
+			
+			if(document.inputForm.name.value == "")
+			
+				document.getElementById("nameDiv").innerHTML = "이름 입력";
+			else if(document.inputForm.age.value == "")
+				
+				document.getElementById("ageDiv").innerHTML = "나이 입력";
+			else
+			 	document.inputForm.submit();
+		} // checkInput
+	</script>
+</body>
+</html>
