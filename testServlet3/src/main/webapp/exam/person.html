@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="/testServlet3/PersonServlet"  method="get" name="inputForm">
+    <table border="1" cellspacing="0" cellpadding="5">
+      <tr>
+        <th width="70">이름</th>
+        <td >
+          <input type="text" name="nameI" id="user_name" placeholder="이름 입력">
+          <div id="nameDiv"></div>
+        </td>
+      </tr>
+      <tr>
+        <th>성별</th>
+        <td>
+          <fieldset>
+            <legend>성별</legend>
+            <label>
+              <input type="radio" name="gender" value="0" checked>남자
+            </label>
+            <label>
+              <input type="radio" name="gender" value="1">여자
+            </label>
+          </fieldset>
+        </td>
+      </tr>
+      <tr>
+        <th>색깔</th>
+        <td>
+          <select name="color" style="width:100px">
+            <optgroup label="색깔">
+              <option value="red">빨강</option>
+              <option value="green">초록</option>
+              <option value="blue">파랑</option>
+              <option value="magenta">보라</option>
+              <option value="cyan">하늘</option>
+            </optgroup>
+           </select>
+        </td>
+      </tr>
+      <tr>
+        <th>취미</th>
+        <td>
+          <label>
+            <input type="checkbox" name="hobby" value="book" checked>독서
+          </label>
+          <label>
+            <input type="checkbox" name="hobby"  value="movie">영화
+          </label>
+          <label>
+            <input type="checkbox" name="hobby"  value="music">음악
+          </label>
+          <label>
+            <input type="checkbox" name="hobby"  value="game">게임
+          </label>
+          <label>
+            <input type="checkbox" name="hobby" value="shopping">쇼핑
+          </label>
+        </td>
+      </tr>
+      <tr>
+        <th>과목</th>
+        <td >
+          <select name="subject" multiple size="6"style="width:100px">
+
+            <optgroup label="subject">
+              <option value="java">Java</option>
+              <option value="servlet">Servlet</option>
+              <option value="jsp" selected>JSP</option>
+
+              <option value="spring">Spring</option>
+            </optgroup>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center">
+          <input type="submit" value="SEND" onclick="sendInfo()" >
+          <input type="reset" value="CANCEL">
+        </td>
+      </tr>
+    </table>
+  </form>
+  <script>
+  function sendInfo() {
+       document.getElementById("nameDiv").innerHTML = "";
+       if (document.inputForm.nameI.value == "") {
+           document.getElementById("nameDiv").innerHTML = "이름을 입력해주세요.";
+       } else {
+           document.getElementById("nameDiv").innerHTML = "";
+       }
+       document.inputForm.submit();
+   }
+  </script>
+</body>
+</html>
