@@ -4,8 +4,8 @@
     <head>
         <title>회원가입</title>
         <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-        <script defer src="../../../resources/js/index.js"></script>
-        <link rel="stylesheet" href="../../../resources/css/index.css" />
+        <script defer src="./js/index.js"></script>
+        
     </head>
     <body>
         <%--<a href="hello-servlet">Hello Servlet</a>--%>
