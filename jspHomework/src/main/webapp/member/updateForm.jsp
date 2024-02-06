@@ -11,7 +11,7 @@ MemberDTO memberDTO = new MemberDTO();
 
 
 
-String ic = memberDAO.getName(memberDTO);
+
 %>
 <!DOCTYPE html>
 <html>
@@ -42,7 +42,7 @@ String ic = memberDAO.getName(memberDTO);
         <tr class="name">
             <th>이름</th>
 
-            <td><input type="text" name="name" id="name" value="<%=ic %>"></td>
+            <<%-- td><input type="text" name="name" id="name" value="<%=ic %>"></td> --%>
         </tr>
         <tr class="id">
             <th>아이디</th>

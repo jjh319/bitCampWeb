@@ -1,3 +1,5 @@
+
+<%@page import="java.net.URLEncoder"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ page import="member.dao.MemberDAO"%>
@@ -31,12 +33,35 @@
     </style>
 </head>
 <body>
-<% if(memberDTO == null) { %>
-    아이디 또는 비밀번호가 틀렸습니다.
-<%} else{%>
-    <%= memberDTO.getName() %>님 로그인<br>
-<input type="button" id="update" value="회원정보수정" onclick="location.href='updateForm.jsp'">
-<%} %>
+<% if(memberDTO == null) { 
+    // 페이지 이동
+    response.sendRedirect("loginFail.jsp");
+    
+} else{
+	// 페이지 이동
+   /*  response.sendRedirect("loginOk.jsp?name="+
+	URLEncoder.encode(memberDTO.getName(),"utf-8") + "&id=" + id
+    		); */
+    		
+    // 쿠키
+    /* Cookie cookie = new Cookie("memName", memberDTO.getName());
+    cookie.setMaxAge(30*60); // 3초
+    response.addCookie(cookie); // 클라이언트로 보내기
+    
+ 	// 쿠키
+    Cookie cookie2 = new Cookie("memId",id);
+    cookie2.setMaxAge(30*60); // 3초
+    response.addCookie(cookie2); */ // 클라이언트로 보내기
+    
+    // 세션
+    /* HttpSession session = request.getSession(); */
+    session.setAttribute("memName", memberDTO.getName());
+    session.setAttribute("memId", id);
+    
+    
+    response.sendRedirect("loginOk.jsp");
+    
+} %>
 <%--<%if (ic != null) { %>--%>
 <%--<%=ic %>님 로그인<br>--%>
 <%--<input type="button" id="update" value="회원정보수정" onclick="location.href='updateForm.jsp'">--%>
