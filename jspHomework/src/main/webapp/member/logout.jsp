@@ -40,7 +40,7 @@
 	<script type="text/javascript">
 		window.onload=function() {
 			alert("로그아웃");
-			location.href="loginForm.jsp";
+			location.href="../index.jsp";
 		}
 	</script>
 	

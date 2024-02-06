@@ -8,7 +8,8 @@
     //데이터
     String id = request.getParameter("id");
     String pwd = request.getParameter("pwd");
-
+	String email1 = request.getParameter("email1");
+    
     MemberDTO memberDTO = new MemberDTO();
     //DB - Select
     MemberDAO memberDAO = MemberDAO.getInstance();
@@ -57,9 +58,10 @@
     /* HttpSession session = request.getSession(); */
     session.setAttribute("memName", memberDTO.getName());
     session.setAttribute("memId", id);
-    
+    session.setAttribute("email1", email1);
     
     response.sendRedirect("loginOk.jsp");
+    
     
 } %>
 <%--<%if (ic != null) { %>--%>

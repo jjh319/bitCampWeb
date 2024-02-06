@@ -21,6 +21,9 @@ public class MemberDTO {
 	private String addr1;
 	private String addr2;
 	
+	private int seq;
+	private String subject;
+	private String content;
 	
 	
 } // end class

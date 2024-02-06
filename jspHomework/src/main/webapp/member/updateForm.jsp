@@ -5,7 +5,7 @@
 <%
 
 
-String id =  request.getParameter("id");
+String id =  (String) session.getAttribute("memId");
 MemberDAO memberDAO = MemberDAO.getInstance();
 MemberDTO memberDTO = new MemberDTO();
 
