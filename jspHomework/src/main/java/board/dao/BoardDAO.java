@@ -5,7 +5,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
+import board.bean.BoardDTO;
 import member.bean.MemberDTO;
 
 public class BoardDAO {
@@ -42,26 +44,32 @@ public class BoardDAO {
     } // getConnection
 	
     // 게시글 작성
-    public void boardWrite(String subject, String content) {
+    public void boardWrite(String id, String name, String email,String subject, String content) {
     	String sql;
-    	MemberDTO memberDTO = new MemberDTO();
     	
-    	sql = "Insert INTO BOARD(seq,subject,content) VALUES(SEQ_BOARD.nextval,?,?)";
+    	
+    	
+    	sql = "Insert INTO BOARD(seq,id,name,email,subject,content，ref) VALUES(SEQ_BOARD.nextval,?,?,?,?,?,?)";
     	
     	getConnection();
     	
     	try {
     		pstmt = conn.prepareStatement(sql);
     	
-    		pstmt.setString(1, memberDTO.getSubject());
-    		pstmt.setString(2, memberDTO.getContent());
+    		pstmt.setString(1,id);
+    		pstmt.setString(2,name);
+    		pstmt.setString(3, email);
+    		pstmt.setString(4, subject);
+    		pstmt.setString(5, content);
+    		pstmt.setInt(6,1);
     		
-    		rs = pstmt.executeQuery(); // 실행
+    		pstmt.executeUpdate(); // 실행
+    		
+    		
     	}  catch(SQLException e) {
     		e.printStackTrace();
     	}  finally {
             try {
-                if (rs != null) rs.close();
                 if (pstmt != null) pstmt.close();
                 if (conn != null) conn.close();
             } catch (SQLException e) {
@@ -70,9 +78,45 @@ public class BoardDAO {
             
         } // finally
     	
-    	
-    
     } // boardWrite
+    
+    
+    public ArrayList<BoardDTO> loadContents() {
+        String sql = "SELECT * FROM board";
+        
+        ArrayList<BoardDTO> boardDTOList = new ArrayList<>();
+        
+        getConnection();
+        
+        try {
+            pstmt = conn.prepareStatement(sql);
+            
+            rs = pstmt.executeQuery();
+
+                while(rs.next()) {
+                	BoardDTO boardDTO = new BoardDTO();
+                    boardDTO.setContent(rs.getString("content"));
+                    boardDTO.setSubject(rs.getString("subject"));
+                    boardDTO.setName(rs.getString("name"));
+                    boardDTO.setEmail(rs.getString("email"));
+                    boardDTO.setId(rs.getString("id"));
+                    boardDTO.setSeq(rs.getInt("seq"));
+                    boardDTOList.add(boardDTO);
+                }
+            } catch(SQLException e) {
+            e.printStackTrace();
+        }  finally {
+            try {
+                if (rs != null) rs.close();
+                if (pstmt != null) pstmt.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } // try-catch
+        } // finally
+        
+        return boardDTOList;
+    } // loadContents
     
     
     

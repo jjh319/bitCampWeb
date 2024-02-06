@@ -8,12 +8,16 @@
     //데이터
     String id = request.getParameter("id");
     String pwd = request.getParameter("pwd");
-	String email1 = request.getParameter("email1");
+	//String email1 = request.getParameter("email1");
     
     MemberDTO memberDTO = new MemberDTO();
+    
     //DB - Select
     MemberDAO memberDAO = MemberDAO.getInstance();
     memberDTO = memberDAO.login(id, pwd);
+    String email1 = memberDTO.getEmail1();
+     
+    
 //    String ic = memberDAO.checkIdPwd(memberDTO);
 
 %>

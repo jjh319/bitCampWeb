@@ -125,6 +125,7 @@ public class MemberDAO {
                 memberDTO.setZipcode(rs.getString("zipcode"));
                 memberDTO.setAddr1(rs.getString("addr1"));
                 memberDTO.setAddr2(rs.getString("addr2"));
+                
                 return memberDTO;
             }
 
