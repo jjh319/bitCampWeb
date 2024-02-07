@@ -81,7 +81,7 @@ public class BoardDAO {
     
     // 게시물 출력
     public ArrayList<BoardDTO> loadContents() {
-        String sql = "SELECT * FROM board";
+        String sql = "SELECT * FROM board ORDER BY seq DESC";
         
         ArrayList<BoardDTO> boardDTOList = new ArrayList<>();
         
