@@ -50,6 +50,7 @@
 				<th>e-mail</th>
 				<th>제목</th>
 				<th>내용</th>
+				<th>날짜</th>
 			</tr>
 		</thead>
 		
@@ -62,6 +63,7 @@
 		            <th><%= board.getEmail() %>  </th>
 		            <th><%= board.getSubject() %>  </th>
 		            <td><%= board.getContent() %>  </td>
+		            <td><%= board.getLogtime() %>  </td>
 		        </tr>
 		    <% } %>
 		 </tbody>

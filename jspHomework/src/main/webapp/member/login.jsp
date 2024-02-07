@@ -16,6 +16,7 @@
     MemberDAO memberDAO = MemberDAO.getInstance();
     memberDTO = memberDAO.login(id, pwd);
     String email1 = memberDTO.getEmail1();
+    String email2 = memberDTO.getEmail2();
      
     
 //    String ic = memberDAO.checkIdPwd(memberDTO);
@@ -62,7 +63,7 @@
     /* HttpSession session = request.getSession(); */
     session.setAttribute("memName", memberDTO.getName());
     session.setAttribute("memId", id);
-    session.setAttribute("email1", email1);
+    session.setAttribute("email1", email1+"@"+email2);
     
     response.sendRedirect("loginOk.jsp");
     

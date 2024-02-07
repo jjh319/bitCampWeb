@@ -47,8 +47,6 @@ public class BoardDAO {
     public void boardWrite(String id, String name, String email,String subject, String content) {
     	String sql;
     	
-    	
-    	
     	sql = "Insert INTO BOARD(seq,id,name,email,subject,content，ref) VALUES(SEQ_BOARD.nextval,?,?,?,?,?,?)";
     	
     	getConnection();
@@ -81,6 +79,7 @@ public class BoardDAO {
     } // boardWrite
     
     
+    // 게시물 출력
     public ArrayList<BoardDTO> loadContents() {
         String sql = "SELECT * FROM board";
         
@@ -101,6 +100,7 @@ public class BoardDAO {
                     boardDTO.setEmail(rs.getString("email"));
                     boardDTO.setId(rs.getString("id"));
                     boardDTO.setSeq(rs.getInt("seq"));
+                    boardDTO.setLogtime(rs.getString("logtime"));
                     boardDTOList.add(boardDTO);
                 }
             } catch(SQLException e) {
