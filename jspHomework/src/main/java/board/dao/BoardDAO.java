@@ -47,7 +47,7 @@ public class BoardDAO {
     public void boardWrite(String id, String name, String email,String subject, String content) {
     	String sql;
     	
-    	sql = "Insert INTO BOARD(seq,id,name,email,subject,content，ref) VALUES(SEQ_BOARD.nextval,?,?,?,?,?,?)";
+    	sql = "Insert INTO BOARD(seq,id,name,email,subject,content，ref,hit) VALUES(SEQ_BOARD.nextval,?,?,?,?,?,SEQ_BOARD.nextval,0)";
     	
     	getConnection();
     	
@@ -59,7 +59,6 @@ public class BoardDAO {
     		pstmt.setString(3, email);
     		pstmt.setString(4, subject);
     		pstmt.setString(5, content);
-    		pstmt.setInt(6,1);
     		
     		pstmt.executeUpdate(); // 실행
     		
@@ -80,8 +79,14 @@ public class BoardDAO {
     
     
     // 게시물 출력
-    public ArrayList<BoardDTO> loadContents() {
-        String sql = "SELECT * FROM board ORDER BY seq DESC";
+    public ArrayList<BoardDTO> loadContents(int startNum,int endNum) {
+        String sql = """
+        		
+        		SELECT * FROM
+				(SELECT rownum rn,tt.* FROM
+        		(SELECT * FROM board ORDER BY ref desc, step asc) tt) WHERE rn>=? AND rn<=?
+        		
+        		""";
         
         ArrayList<BoardDTO> boardDTOList = new ArrayList<>();
         
@@ -89,6 +94,9 @@ public class BoardDAO {
         
         try {
             pstmt = conn.prepareStatement(sql);
+            
+            pstmt.setInt(1, startNum);
+            pstmt.setInt(2, endNum);
             
             rs = pstmt.executeQuery();
 
@@ -100,6 +108,7 @@ public class BoardDAO {
                     boardDTO.setEmail(rs.getString("email"));
                     boardDTO.setId(rs.getString("id"));
                     boardDTO.setSeq(rs.getInt("seq"));
+                    boardDTO.setPseq(rs.getInt("pseq"));
                     boardDTO.setLogtime(rs.getString("logtime"));
                     boardDTOList.add(boardDTO);
                 }
@@ -117,6 +126,41 @@ public class BoardDAO {
         
         return boardDTOList;
     } // loadContents
+    
+    
+    public int getTotalA() {
+		String sql = """
+		        		SELECT count(*)  FROM board
+		
+		        		""";
+		
+		getConnection();
+		
+		int count = 0;
+		
+		try {
+            pstmt = conn.prepareStatement(sql);
+            
+            rs = pstmt.executeQuery();
+            
+            rs.next();
+            count = rs.getInt(1);
+            
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}   finally {
+            try {
+                if (rs != null) rs.close();
+                if (pstmt != null) pstmt.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } // try-catch
+        } // finally
+
+
+		return count;
+    } // getTotalA
     
     
     

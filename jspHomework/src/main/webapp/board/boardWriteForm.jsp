@@ -29,7 +29,7 @@
 <body>
 	<h1>글쓰기</h1>
 	
-	<form action="boardWrite.jsp" method="post" name="inputForm">
+	<form action="boardWrite.jsp?pg=1" method="post" name="inputForm">
 		<table class="table" border="1px">
 			
 			<tr>
