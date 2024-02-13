@@ -29,6 +29,30 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<style type="text/css">
+
+	#currentPaging {
+		color:red;
+		
+	}
+	
+	#paging {
+		color:black;
+	}
+	
+	span {
+		border: 1px solid black;
+		padding: 7px;
+		margin: 10px 10px;
+	}
+	
+	div {
+		margin-top:15px;
+	}
+
+</style>
+
 </head>
 <body>
 
@@ -75,7 +99,7 @@
 			 	<%for(int i=1; i<=totalP; i++) { %>
 			 		
 			 		<%if(pg == i) { %>
-			 			<a id="currentPaging" href="board.jsp?pg=<%=i %>"><%=i %></a> 
+			 			<span><a id="currentPaging" href="board.jsp?pg=<%=i %>"><%=i %></a> </span>
 			 		<%} else { %>
 			 			<a  id="paging" href="board.jsp?pg=<%=i %>"><%=i %></a>
 			 		<%} // if-else %>
