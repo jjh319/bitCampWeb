@@ -9,4 +9,16 @@
  		INSERT INTO usertable VALUES(#{name}, #{id}, #{pwd})
  	</insert>
  	
+ 	<select id="getUserList" resultType="user.bean.UserDTO">
+ 		SELECT * FROM usertable
+ 	</select>
+ 	
+ 	<update id="updateUser" parameterType="user.bean.UserDTO">
+ 		UPDATE usertable SET name = #{name}, id = #{id}, pwd = #{pwd} WHERE id = #{id}
+ 	</update>
+ 	
+ 	<delete id="deleteUser" parameterType="user.bean.UserDTO">
+ 		DELETE FROM usertable WHERE id = #{id}
+ 	</delete>
+ 	
  </mapper>
