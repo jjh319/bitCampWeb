@@ -53,7 +53,7 @@ public class MemberDAO {
 		
 		sqlSession.close();
 		return exist;
-	}
+	} // isExistId
 			
 	//회원가입
 	public int write(MemberDTO memberDTO){ //구현
@@ -62,14 +62,14 @@ public class MemberDAO {
 		sqlSession.commit();
 		sqlSession.close();
 		return su;
-	}
+	} // write
 	
 	public MemberDTO getMember(String id) {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		MemberDTO memberDTO = sqlSession.selectOne("memberSQL.getMember", id);
 		sqlSession.close();
 		return memberDTO;
-	}
+	} // getMember
 	
 	//회원정보수정
 	public void update(MemberDTO memberDTO) {
@@ -77,9 +77,9 @@ public class MemberDAO {
 		sqlSession.update("memberSQL.update", memberDTO);
 		sqlSession.commit();
 		sqlSession.close();
-	}
+	} // update
 
-}
+} // end class
 
 
 

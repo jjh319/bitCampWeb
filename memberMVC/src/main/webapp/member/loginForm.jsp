@@ -17,7 +17,7 @@ table {
 </style>
 </head>
 <body>
-<form name="loginForm" id="loginForm" method="post" action="/memberMVC/member/login.do">
+<form name="loginForm" id="loginForm" method="post" action="/memberMVC/member/loginOk.do">
 	<table border="1" cellpadding="5">
 		<tr>
 			<th>아이디</th>
