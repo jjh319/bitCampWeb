@@ -17,7 +17,7 @@ table {
 </style>
 </head>
 <body>
-<form id="writeForm" method="post" action="write.jsp">
+<form id="writeForm" method="post" action="/memberMVC/member/write.do">
 	<table border="1" cellpadding="5">
 		<tr>
 			<th width="100">이름</th>
@@ -126,11 +126,11 @@ table {
 			else
 				$.ajax({
 					type: 'post',
-					url: 'checkId2.jsp',
+					url: 'checkId2.do',
 					data: 'id=' + $('#id').val(), //서버로 보낼 데이터
 					dataType: 'text', //서버로부터 오는 데이터 타입, 'exist' or 'non_exist'
 					success: function(data){
-						//alert(data.trim());
+						alert(data.trim());
 						
 						if(data.trim() == 'exist')
 							$('#idDiv').html('사용 불가능').css('color', 'red');

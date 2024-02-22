@@ -33,10 +33,10 @@ public class LoginService implements CommandProcess {
 			session.setAttribute("memMemberDTO", memberDTO);
 			
 			return "loginOk.jsp";
-		}
-	}
+		} // if-else
+	} // requestPro
 
-}
+} // end class
 
 
 
