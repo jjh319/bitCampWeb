@@ -34,13 +34,13 @@ public class BoardWriteService implements CommandProcess{
 		
 		String id = (String) session.getAttribute("memId");
 		String name = (String) session.getAttribute("memName");
-		String email1 = (String) session.getAttribute("email1");
+		String email = (String) session.getAttribute("memEmail");
 		
 		Map<String, String> map = new HashMap<>();
 		
 		map.put("id", id);
 		map.put("name", name);
-		map.put("email1", email1);
+		map.put("email", email);
 		map.put("subject", subject);
 		map.put("content", content);
 		

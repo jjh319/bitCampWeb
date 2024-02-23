@@ -23,9 +23,9 @@ public class UpdateFormService implements CommandProcess {
 		
 		request.setAttribute("memberDTO", memberDTO);
 		return "/member/updateForm.jsp";
-	}
+	} // requestPro
 
-}
+} // end class
 
 
 

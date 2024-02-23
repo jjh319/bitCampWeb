@@ -11,7 +11,7 @@
 <script type="text/javascript">
 window.onload=function(){
 	alert("회원정보수정 완료!!")
-	location.href="/projectMVC/member/loginForm.do";
+	location.href="/projectMVC/index.do";
 }
 </script>
 </body>
