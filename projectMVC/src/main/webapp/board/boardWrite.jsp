@@ -20,7 +20,7 @@
 
 	#currentPaging{
 		color:red;
-		border:1px solid black;
+		
 		font-size:15pt;
 		cursor:pointer;
 		margin: 5px;
