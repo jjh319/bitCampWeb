@@ -7,6 +7,15 @@
 <title>Insert title here</title>
 <style>
 
+	#home img {
+	width:100px;
+	height:100px;
+	}
+	
+	#home img:hover {
+		cursor:pointer;
+	}
+	
 	td {
 		width:300px;
 	}
@@ -27,6 +36,10 @@
 
 </head>
 <body>
+	<h1 id="home">
+    	<img alt="1" src="../image/1.jpg" onclick="location.href='../index.do'">
+    	MVC를 활용한 미니프로젝트
+   	</h1>
 	<h1>글쓰기</h1>
 	
 	<form action="boardWrite.do?pg=1" method="post" name="inputForm">

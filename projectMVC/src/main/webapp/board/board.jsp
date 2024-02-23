@@ -56,7 +56,7 @@
 </head>
 <body>
 
-	<h2><img src="../image/1.jpg" width="60" height="60" alt="kakao" onclick="location.href='../index.do'"></h2>
+	<h2><img src="../image/1.jpg" width="60" height="60" alt="kakao" style="cursor:pointer;" onclick="location.href='../index.do'">MVC를 활용한 미니프로젝트</h2>
 
 	<table border="1" cellpadding="7" frame="hsides" rules="rows">
 		<thead>
