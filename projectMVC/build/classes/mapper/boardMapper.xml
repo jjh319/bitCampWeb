@@ -30,6 +30,11 @@
  		 
  	</select>
  	
+ 	<!-- 상세보기 -->
+ 	<select id="boardView" parameterType="java.util.Map" resultType="BoardDTO">
+ 		SELECT * FROM board WHERE seq = #{seq}
+ 	</select>
+ 	
  	
  	<select id="getTotalA" resultType="int">
  		select count(*) from board

@@ -70,6 +70,20 @@ public class BoardDAO {
     } // boardList
     
     
+    public List<BoardDTO> boardView(String seq) {
+    	
+    	Map<String, String> map = new HashMap<String, String>();
+    	map.put("seq", seq);
+    	
+    	SqlSession sqlSession = sqlSessionFactory.openSession();
+    	List<BoardDTO> list = sqlSession.selectList("boardSQL.boardView", map);
+    	
+    	sqlSession.close();
+    	
+    	return list;
+    } // boardView
+    
+    
     public int getTotalA() {
 		
     	SqlSession sqlSession = sqlSessionFactory.openSession();

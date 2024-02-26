@@ -95,7 +95,8 @@
 		            <th>${board.id}</th>
 		            <th>${board.name}</th>
 		            <th>${board.email}</th>
-		            <th class="boardView"><a href="#">${board.subject}</a></th>
+		            
+		            <th class="boardView"><a href="boardView.do?seq=${board.seq}">${board.subject}</a></th>
 		            
 		            <fmt:parseDate var="parsedDate" value="${board.logtime}" pattern="yyyy-MM-dd HH:mm:ss" />
 		            <td><fmt:formatDate value="${parsedDate}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
