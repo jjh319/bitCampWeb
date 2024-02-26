@@ -14,3 +14,11 @@ function checkWrite() { // 유효성 검사
 	
 } // checkWrite
 
+
+/*$(function() {
+	$.ajax({
+		type : 'post',
+		url: '/projectMVC/board/GetBoardList.do',
+		data: 'pg=' + $('')
+	})
+}) // $*/

@@ -6,6 +6,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 import com.control.CommandProcess;
 
 import board.bean.BoardDTO;
@@ -33,6 +36,7 @@ public class BoardService implements CommandProcess{
 		session.setAttribute("boardDTO", boardDTO);
 		session.setAttribute("totalP", totalP);
 		session.setAttribute("pg", pg);
+		
 		
 		return "/board/board.jsp";
 	} // requestPro	

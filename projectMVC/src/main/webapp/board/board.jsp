@@ -50,6 +50,16 @@
 	a:hover {
 		text-decoration:underline;
 	}
+	
+	.boardView a {
+		color:black;
+	}
+	
+	.boardView a:hover {
+		text-decoration:underline;
+		color:green;
+		cursor:pointer;
+	}
 
 </style>
 
@@ -66,7 +76,7 @@
 				<th>이름</th>
 				<th>e-mail</th>
 				<th>제목</th>
-				<th>내용</th>
+				
 				<th>날짜</th>
 				<th>조회수</th>
 			</tr>
@@ -85,8 +95,8 @@
 		            <th>${board.id}</th>
 		            <th>${board.name}</th>
 		            <th>${board.email}</th>
-		            <th>${board.subject}</th>
-		            <td>${board.content}</td>
+		            <th class="boardView"><a href="#">${board.subject}</a></th>
+		            
 		            <fmt:parseDate var="parsedDate" value="${board.logtime}" pattern="yyyy-MM-dd HH:mm:ss" />
 		            <td><fmt:formatDate value="${parsedDate}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
 		            <td>${board.hit}</td>
