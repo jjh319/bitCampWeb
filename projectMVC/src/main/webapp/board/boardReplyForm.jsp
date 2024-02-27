@@ -6,7 +6,7 @@ table {
 	border-collapse: collapse;
 }
 
-#boardForm  div {
+#boardReplyForm  div {
 	color: red;
 	font-size: 8pt;
 	font-weight: bold;

@@ -29,15 +29,19 @@ $(function(){
 	});
 });
 
-//글수정
+//글수정 - 수정한 페이지 번호를 보여준다.
+$('#boardUpdateBtn').click(function(){
+	$('#boardViewForm').attr('action','/projectMVC/board/boardUpdateForm.do');
+	$('#boardViewForm').submit();//seq ,pg 만 넘어감
+});
 
-//글삭제
+//글삭제 - 삭제한 후에는 1페이지를 보여준다.
 $('#boardDeleteFormBtn').click(function(){
 	$('#boardViewForm').attr('action','/projectMVC/board/boardDelete.do');
 	$('#boardViewForm').submit();//seq ,pg 만 넘어감
 });
 
-//답글
+//답글 - 원글이 있는 페이지번호를 보여준다.
 $('#boardReplyFormBtn').click(function(){
 	$('#boardViewForm').attr('action','/projectMVC/board/boardReplyForm.do');
 	$('#boardViewForm').submit();//seq ,pg 만 넘어감

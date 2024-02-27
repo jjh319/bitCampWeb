@@ -16,12 +16,14 @@ public class BoardUpdateFormService implements CommandProcess {
 		 // 데이터
 		HttpSession session = request.getSession();
         int seq = Integer.parseInt(request.getParameter("seq"));
+        int pg = Integer.parseInt(request.getParameter("pg"));
         
         // DB
         BoardDAO boardDAO = BoardDAO.getInstance();
         BoardDTO boardDTO = boardDAO.getBoard(seq);
         
         request.setAttribute("boardDTO", boardDTO);
+        request.setAttribute("pg", pg);
         return "/board/boardUpdateForm.jsp";
 	}
 

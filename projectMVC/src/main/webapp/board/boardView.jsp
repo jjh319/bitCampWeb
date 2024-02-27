@@ -98,7 +98,7 @@ span:hover {
 		<input type="button" value="목록"
 				onclick="location.href='/projectMVC/board/boardList.do?pg=${pg}'">
 		<span id="boardViewSpan">				
-			<input type="button" value="글수정" id="boardUpdateFormBtn" onclick="location.href='/projectMVC/board/boardUpdateForm.jsp'">
+			<input type="button" value="글수정" id="boardUpdateBtn" >
 			<input type="button" value="글삭제" id="boardDeleteBtn">
 		</span>
 		<input type="button" value="답글" id="boardReplyFormBtn">

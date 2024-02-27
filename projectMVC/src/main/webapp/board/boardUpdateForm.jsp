@@ -12,7 +12,7 @@
 <div id="container">
 <jsp:include page="../main/boardMenu.jsp" />
     <div id="section">
-        <form action="/projectMVC/board/boardUpdate.do" method="post">
+        <form action="/projectMVC/board/update.do" method="post">
             <input type="hidden" id="seq" name="seq" value="${boardDTO.seq}">
             <table border="1" cellpadding="7" frame="hsides" rules="rows">
                 <tr>
@@ -32,11 +32,11 @@
                     </td>
                 </tr>
             </table>
-            <input type="submit" value="수정하기" onclick="location.href='/projectMVC/board/boardUpdate.do'">
+            <input type="submit" value="수정하기"  id="boardUpdateFormBtn">
             <input type="button" value="목록"
 			onclick="location.href='/projectMVC/board/boardList.do?pg=${pg}'">
         </form>
     </div>
     
     <script src="http://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="../js/boardView.js"></script>
+<script src="../js/boardUpdate.js"></script>

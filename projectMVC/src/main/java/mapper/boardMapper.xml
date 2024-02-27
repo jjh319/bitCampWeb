@@ -46,6 +46,36 @@
 		select * from board where seq=#{seq}
 	</select>
 	
+	<!-- 답글 -->
+	<update id="boardReplyStep" parameterType="board">
+		update board set step=step+1 where ref = #{ref} and step > #{step}
+	</update>
+	
+	<insert id="boardReply" parameterType="java.util.Map">
+		insert into board values(seq_board.nextval
+						    	, #{id}
+						    	, #{name}
+						    	, #{email}
+						    	, #{subject}
+						    	, #{content}
+						    	, #{ref}
+						    	, #{lev}
+						    	, #{step}
+						    	, #{pseq}
+						    	, 0 <!-- reply(답글수) -->
+						    	, 0 <!-- hit(조회수) -->
+						    	, Sysdate)
+	</insert>
+	<update id="boardReplyReply" parameterType="int">
+		update board set reply=reply+1 where seq=#{pseq}
+	</update>
+	
+	<!-- 게시글 수정 -->
+	<update id="boardUpdae" parameterType="java.util.Map">
+		update board set subject=#{subject},content=#{content} where seq=#{seq}
+	</update>
+	
+	
 </mapper> 
 
 

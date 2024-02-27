@@ -40,6 +40,22 @@ $(function(){
 							+ `</tr>`;
 				$('#boardListTable').append(result);*/
 				
+				
+				//답글
+				//1. LEV만큼 안으로 들어간다
+				for(var i=1; i<=items.lev; i++) {
+					$('.subjectA_' + items.seq).before('&emsp;')
+				} // for
+				
+				//2. subject 앞에서 이미지 붙여준다.
+				if(items.pseq != 0) {
+					$('.subjectA_' + items.seq).before($('<img />', {
+						'src' : '../image/reply.gif'
+					}))
+				} // if
+				
+				
+				
 			});//$.each
 			
 			//페이징 처리 
