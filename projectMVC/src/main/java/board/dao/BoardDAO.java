@@ -20,7 +20,7 @@ public class BoardDAO {
 	
 	public static BoardDAO getInstance() {
 		return boardDAO;
-	}
+	} // getInstance
 	
 	public BoardDAO() {
 		try {
@@ -36,7 +36,7 @@ public class BoardDAO {
 		sqlSession.insert("boardSQL.boardWrite", map);
 		sqlSession.commit();
 		sqlSession.close();
-	}
+	} // boardWrite
 	
 	public List<BoardDTO> boardList(int startNum, int endNum){
 		Map<String, Integer> map = new HashMap<String, Integer>();
@@ -47,23 +47,29 @@ public class BoardDAO {
 		List<BoardDTO> list = sqlSession.selectList("boardSQL.boardList", map);
 		sqlSession.close();
 		return list;
-	}
+	} // boardList
 	
 	public int getTotalA(){
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		int totalA = sqlSession.selectOne("boardSQL.getTotalA");
 		sqlSession.close();
 		return totalA;
-	}
+	} // getTotalA
 
 	public BoardDTO getBoard(int seq) {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		BoardDTO boardDTO = sqlSession.selectOne("boardSQL.getBoard", seq);
+		BoardDTO boardDTO = sqlSession.selectOne("boardSQL.getBoard",seq);
 		sqlSession.close();
 		return boardDTO;
-	}
+	} // getBoard
+
+	public void boardReply(Map<String, String> map) {
+		
+		
+		
+	} // boardReply
 	
-}
+} // end class
 
 
 

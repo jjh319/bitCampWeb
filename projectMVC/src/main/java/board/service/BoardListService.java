@@ -17,6 +17,7 @@ public class BoardListService implements CommandProcess {
 		//데이터
 		int pg = Integer.parseInt(request.getParameter("pg"));
 		
+		
 		//응답
 		request.setAttribute("pg", pg);
 		return "/board/boardList.jsp";

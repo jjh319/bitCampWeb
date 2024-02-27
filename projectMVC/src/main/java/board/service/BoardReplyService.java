@@ -11,12 +11,13 @@ import com.control.CommandProcess;
 
 import board.dao.BoardDAO;
 
-//원글
-public class BoardWriteService implements CommandProcess {
+public class BoardReplyService implements CommandProcess {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		//데이터
+		int pseq = Integer.parseInt(request.getParameter("seq"));//원글번호
+		int pg = Integer.parseInt(request.getParameter("pg"));//원글이 있는 페이지 번호
 		String subject = request.getParameter("subject");
 		String content = request.getParameter("content");
 		
@@ -32,12 +33,16 @@ public class BoardWriteService implements CommandProcess {
 		map.put("email", email);
 		map.put("subject", subject);
 		map.put("content", content);
+		map.put("pseq",pseq+"");//원글번호
 		
 		//DB
 		BoardDAO boardDAO = BoardDAO.getInstance();
-		boardDAO.boardWrite(map);
+		boardDAO.boardReply(map);
 		
-		return "/board/boardWrite.jsp";
+		
+		return "/board/boardReply.jsp";
+		
+		
 	}
 
 }

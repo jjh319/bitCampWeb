@@ -30,11 +30,13 @@ span:hover {
 	margin: 30px auto;
 	text-align: left;
 }
+.subjectA:link {color:black; text-decoration:none;} 
+.subjectA:visited {color:black; text-decoration:none;} 
+.subjectA:hover {color:black; text-decoration:none;} 
+.subjectA:active {color:black; text-decoration:none;} 
 
-.subjectA:link {color: black; text-decoration: none;}
-.subjectA:visited {color: black; text-decoration: none;}
-.subjectA:hover {color: green; text-decoration:underline;}
-.subjectA:active {color: black; text-decoration: none;}
+
+
 
 #container {
 	margin: auto;
@@ -79,28 +81,40 @@ span:hover {
 	<input type="text" id="pg" value="${pg }">
 	<input type="text" id="memId" value="${memId }">
 	
+	
 	<div id="section" class="boardListDiv">
 		<table border="1" cellpadding="7" frame="hsides" rules="rows" id="boardListTable">
 			<tr>
 				<th width="100">글번호</th>
 				<th width="300">제목</th>
 				<th width="150">작성자</th>
-				<th width="150">작성일</th>
 				<th width="100">조회수</th>
+				<th width="150">작성일</th>
 			</tr>
 			
-			<!-- 동적 처리 -->
+				<!-- 동적 처리 -->
+			
+					<%-- <tr>
+						<td align="center"></td>
+						<td></td>
+						<td align="center"></td>
+						<td align="center">
+							<fmt:formatDate value="" pattern="YYYY.MM.dd."/>
+						</td>
+						<td align="center"></td>
+					</tr> --%>
 		</table>
-		
 		<div id="boardPagingDiv" style="text-align: center; width: 870px; margin-top: 15px;">
+			
 		</div>
 	</div>
 </div>	
 
-<script src="http://code.jQuery.com/jquery-3.7.1.min.js"></script>
-<script src="../js/boardList.js"></script>
-
-
+<script src="http://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="../js/boardList.js">
+	
+</script>
+    
 <script type="text/javascript">
 function boardPaging(pg) {
 	location.href = "/projectMVC/board/boardList.do?pg=" + pg;
