@@ -75,6 +75,19 @@
 		update board set subject=#{subject},content=#{content} where seq=#{seq}
 	</update>
 	
+	<!-- 글삭제 -->
+	<delete id="boardDelete" parameterType="int">
+		begin
+		
+			UPDATE BOARD SET reply=reply-1 WHERE SEQ=(SELECT pseq FROM board WHERE seq=#{seq});
+			
+			UPDATE BOARD SET SUBJECT = '[원글이 삭제된 답글]' || SUBJECT WHERE pseq=#{seq};
+			
+			DELETE BOARD WHERE seq=#{seq};
+		
+		end;
+	</delete>
+	
 	
 </mapper> 
 

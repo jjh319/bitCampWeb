@@ -36,9 +36,27 @@ $('#boardUpdateBtn').click(function(){
 });
 
 //글삭제 - 삭제한 후에는 1페이지를 보여준다.
-$('#boardDeleteFormBtn').click(function(){
-	$('#boardViewForm').attr('action','/projectMVC/board/boardDelete.do');
-	$('#boardViewForm').submit();//seq ,pg 만 넘어감
+$('#boardDeleteBtn').click(function(){
+	
+	$.ajax({
+		type : 'post',
+		url : '/projectMVC/board/boardDelete.do',
+		data : 'seq=' + $('#seq').val(),
+		dataType : 'text',
+		success : function(data) {
+			if(data.trim() == 'ok') {
+				alert("작성하신 글을 삭제하였습니다.")
+				location.href = "/projectMVC/board/boardList.do?pg=1";
+			} // if
+		},
+		error: function(e) {
+			console.log(e)
+		} // error
+	})
+	
+	
+	/*$('#boardViewForm').attr('action','/projectMVC/board/boardDelete.do');
+	$('#boardViewForm').submit();//seq ,pg 만 넘어감*/
 });
 
 //답글 - 원글이 있는 페이지번호를 보여준다.
