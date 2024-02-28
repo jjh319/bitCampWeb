@@ -90,7 +90,7 @@ span:hover {
 		
 		<tr>
 			<td height="300" valign="top" colspan="3">
-				<span id="contentSpan" >0</span>
+				<pre><span id="contentSpan" >0</span></pre>
 			</td>
 		</tr>
 	</table> 

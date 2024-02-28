@@ -40,8 +40,11 @@ public class BoardDAO {
 	
 	public List<BoardDTO> boardList(int startNum, int endNum){
 		Map<String, Integer> map = new HashMap<String, Integer>();
-		map.put("startNum", startNum);
-		map.put("endNum", endNum);
+//		map.put("startNum", startNum);
+//		map.put("endNum", endNum);
+		
+		map.put("startNum", startNum-1);
+		map.put("endNum", 5);
 		
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		List<BoardDTO> list = sqlSession.selectList("boardSQL.boardList", map);
