@@ -91,7 +91,7 @@ public class BoardDAO {
 	}
 	public int  boardUpdate(Map<String, String> map) {
 		SqlSession sqlSession = sqlSessionFactory.openSession();	//생성
-		int su = sqlSession.update("boardSQL.boardUpdate", map);
+		int su = sqlSession.update("boardSQL.updateBoard", map);
 		sqlSession.commit();
 		sqlSession.close();
 		return su;
