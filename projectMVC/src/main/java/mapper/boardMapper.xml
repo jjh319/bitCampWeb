@@ -7,7 +7,7 @@
 	<!-- 글쓰기 -->
 	<insert id="boardWrite" parameterType="java.util.Map">
 	
-		<selectKey resultType="int" keyProperty="ref" order="BEFORE">
+		<!-- <selectKey resultType="int" keyProperty="ref" order="BEFORE">
 			select MAX(seq)+1 FROM board
 		</selectKey>
 	
@@ -19,7 +19,19 @@
 				    	, #{subject}
 				    	, #{content}
 				    	, #{ref}
-				    	)
+				    	) -->
+				  
+				    	
+		insert into board(id,name,email,subject,content,ref) 
+				    values(
+				    	  #{id}
+				    	, #{name}
+				    	, #{email}
+				    	, #{subject}
+				    	, #{content}
+				    	, (SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA=DATABASE() AND TABLE_NAME='board'))
+		
+		
 	</insert>
 	
 	<!-- 목록 -->

@@ -57,6 +57,11 @@ span:hover {
     height: 100%;
     float: left;
 }
+
+#contentSpan{
+	white-space: pre-wrap;
+}
+
 </style>
 
 <div id="header" style="text-align: center;">
