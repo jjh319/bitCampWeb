@@ -18,7 +18,7 @@ public class BoardDAO {
 	
 	public static BoardDAO getInstance() {
 		return boardDAO;
-	}
+	} // BoardDAO
 	
 	public BoardDAO() {
 		
